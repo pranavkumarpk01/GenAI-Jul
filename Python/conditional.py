@@ -47,5 +47,26 @@ match operator:
         print("Result =" , num1 * num2)
     case"/":
         print("Result =" , num1 / num2)
-    case"_":
+    case "_":
         print("Invalid Operator")    
+
+
+#Assignment 
+       # Design a traffic system , that can give u commands based on the color of the light selcted
+
+# provider = "groq"
+
+# match provider:
+#     case "openai":
+#         print("Calling OpenAI API")
+#     case "groq":
+#         print("Calling Groq API")
+#     case "anthropic":
+#         print("Calling Claude API")
+#     case "gemini":
+#         print("Calling Gemini API")
+#     case "ollama":
+#         print("Calling Local Ollama")
+    
+
+#In onorder to have the defualt case of execution u can use only _, if any of the condtion doesnt satisify    
