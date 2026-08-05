@@ -96,3 +96,87 @@
 #      user_password = input("Enter your password: ")
 
 # print("Access granted")
+
+
+#continue, break and pass are three different keywords
+
+#break statement immediately terminates the loop when a certain condition is met.
+
+# for i in sequence:
+#     if condition:
+#         break
+
+# for num in range(1,11):
+#     if num == 5:
+#         break
+#     print(num)
+
+# #iterations
+# # num = 1
+# if 1 == 5?
+# print(1)
+
+# for  num =2
+# if 2 ==5?
+# print(2)
+
+# for  num = 3
+# if 3 ==5?
+# print(3)
+
+# for  num =4 
+# if 4 ==5?
+# print(4)
+
+# for num =5
+# if 5 == 5
+
+#Program write a ATM pin program, where u need to check if the original passsword matches with one entered by the user..
+#use loop , conditioning and also break
+
+# correct_pin = "1234"
+
+# for attempt in range(3):
+#     pin = input("Enter the Pin:")
+
+#     if pin  ==  correct_pin:
+#         print("Login Successful")
+#         break
+#     else:
+#         print("Wrong Pin")    
+
+#continue statment skips the current iteration and moves to the next iteration
+
+# for item in sequence:
+#     if condition:
+#         continue 
+
+# for num in range(1,11):
+#     if num == 5:
+#         continue
+#     print(num)
+
+# I dont want to have the absent students name in the output
+
+# students = ["Ram" , "John" , "David" , "Pranav"]
+# absent = "Pranav"
+
+# for student in students:
+#     if student == absent:
+#         continue
+
+#     print(student, "Present")
+
+#pass statment
+# pass means dont do anything.
+# It is used when Python expects a statment but we dont want to write the logic yet
+
+# for num in range(1,6):
+#     if num == 3 :
+#         pass
+#     print(num)
+
+# statment   what it does.                 Loop continues?           Current iteration?
+# break.     exits the loop completely      No                          Stops everything
+# continue   skips current iteration        yes                          skips current iteration 
+# pass       does nothing                   yes.                        Executes normally
