@@ -180,3 +180,18 @@
 # break.     exits the loop completely      No                          Stops everything
 # continue   skips current iteration        yes                          skips current iteration 
 # pass       does nothing                   yes.                        Executes normally
+
+
+correct_pin ="1234"
+attempts = 0
+max_attempt = 3
+
+while attempts < max_attempt:
+    pin = input("Enter the Pin: ")
+
+    if pin == correct_pin:
+        print("Login Successful")
+        break
+    else:
+        print("Wrong pin")
+        attempts = attempts + 1
