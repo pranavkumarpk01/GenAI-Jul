@@ -3,7 +3,7 @@ name = "Pranav"
 age = 30 
 _subject = "123 jp nagar"
 
-1name="John"#Invalid cos its starting from a number
+# 1name="John"#Invalid cos its starting from a number
 
 #2 variable name cannot start with a number
 123= 30 #Invalid
@@ -18,16 +18,16 @@ Name = "Pranav"
 
 
 #5 Do not use Python keywords as Variable name.
-if = 10
-for = "Pranav" 
-class = 19
+# if = 10
+# for = "Pranav" 
+# class = 19
 
 #keywords present are if , else, for , while , class, def, return , import , True, False 
 
 #6 Avoid spaces in variable names
-student name = "John"   #Invalid variable
-student_name = "John"
-studentname = "John"
+# student name = "John"   #Invalid variable
+# student_name = "John"
+# studentname = "John"
 
 #7 Always chose meaningful variable names
 

@@ -13,6 +13,7 @@
 
 
 # numbers = [100,200,300,400,700]
+#             0.  1.  2. 3.  4 
 
 # for num in numbers:
 #     print(num)
@@ -27,3 +28,12 @@ print(cricketers)
 #you can remove values from the list
 cricketers.remove("RS")
 print(cricketers)
+
+print(cricketers[1])
+
+#Find the sum of the defined list
+numbers = [25,54,67,22]
+total = 0
+for num in numbers:
+    total = total + num
+print(total)
