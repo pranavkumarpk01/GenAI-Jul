@@ -1,8 +1,3 @@
-from employee import Employee
-
-emp = Employee()
-emp.employee_name("pranav")
-
 class Calculator:
    def add (self, a, b):
        print("Addition:" , a + b)

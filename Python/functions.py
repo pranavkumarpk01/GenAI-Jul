@@ -87,9 +87,11 @@
 #use print() only to display information of the user(debugging, logging or for user interaction)
 
 
-def calculate_salary(hours):
-    print(hours * 500)
+# Below is to display on how to use of print will just execute the program and stop the flow 
 
-salary = calculate_salary(8)
+# def calculate_salary(hours):
+#     print(hours * 500)
 
-print(salary)
+# salary = calculate_salary(8)
+
+# print(salary)
