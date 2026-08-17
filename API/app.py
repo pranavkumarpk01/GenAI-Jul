@@ -1,12 +1,5 @@
-#Library -> Predefined fucntions which has to be downloaded into our system to use it..
-#we have multiple frameworks which will help us to develop apis..Fast API
-#Whenever you are developing a python based applciation its mandatory to have a requirements.txt file which is responsible to hold all your libraries
-#Once u have all the libraires mentioned in that file, we have to install using pip install -r requirements.txt
-#inorder to use the mongo db databse, u need to run a docker continaer with the command   docker run --name my-mongo -d -p 27017:27017 mongo:latest
-#It is mandatory to download docker before running the above command
-
-
 from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
 from pymongo import MongoClient
 from bson import ObjectId
 
@@ -16,56 +9,67 @@ app = FastAPI(
     version="1.0"
 )
 
-#You have to establish the connection with the db
+# Establish connection with the db
 client = MongoClient("mongodb://localhost:27017/")
 db = client["training_db"]
 collection = db["students"]
 
+# 1. Define the student structure using Pydantic
+class Student(BaseModel):
+    name: str
+    age: int
+    course: str
+    email: str
+
 @app.post("/students")
-def create_student(student : dict):
-    result = collection.insert_one(student)
+def create_student(student: Student):
+    # .model_dump() turns the Pydantic model into a dictionary for MongoDB
+    result = collection.insert_one(student.model_dump())
 
-    return{
-        "message":"student data has been created",
-        "_id" : str(result.inserted_id)
+    return {
+        "message": "student data has been created",
+        "_id": str(result.inserted_id)
     }
-
-
-
 
 @app.get("/students/get")
 def get_students():
-    students=[]
+    students = []
     for student in collection.find():
-        student["_id"]=str(student["_id"])
+        student["_id"] = str(student["_id"])
         students.append(student)
 
     return students    
 
-
 @app.put("/students/{student_id}")
-def update_student(student_id:str , student:dict):
+def update_student(student_id: str, student: Student):
     result = collection.update_one(
-        {"_id":ObjectId(student_id)},
-        {"$set":student}
+        {"_id": ObjectId(student_id)},
+        {"$set": student.model_dump()}
     )
 
-    return{
-        "message":"student updated"
+    return {
+        "message": "student updated"
     }
 
 @app.delete("/students/{student_id}")
-def delete_student(student_id:str):
-    result =collection.delete_one(
+def delete_student(student_id: str):
+    result = collection.delete_one(
        {"_id": ObjectId(student_id)}
     )
-    return{
-        "message":"Student data deleted"
+    return {
+        "message": "Student data deleted"
     }
 
-#  {"$set":student}
-# $set:{
-#   "course": "DevOps"
-# }
+@app.patch("/students/{student_id}/field/{field_name}")
+def delete_student_field(student_id: str, field_name: str):
+    result = collection.update_one(
+        {"_id": ObjectId(student_id)},
+        {"$unset": {field_name: ""}}
+    )
 
-#delete one particular column
+    if result.matched_count == 0:
+        raise HTTPException(status_code=404, detail="Student not found")
+
+    return {
+        "message": f"Field '{field_name}' has been successfully deleted from the student document."
+    }
