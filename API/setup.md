@@ -176,3 +176,13 @@ From here you can try out every endpoint directly in the browser — no separate
 - **"Port already in use" (27017 or 8000):** something else is already using that port. Stop the conflicting process, or map to a different host port, e.g. `-p 27018:27017`, and update the connection string accordingly.
 - **`ModuleNotFoundError: No module named 'fastapi'`:** your virtual environment likely isn't activated, or `pip install -r requirements.txt` wasn't run inside it.
 - **Changes not reflecting:** make sure you started uvicorn with `--reload`, and that you saved the file.
+
+
+To deploy api applciation
+
+build the image -> docker build -t student-api .
+
+run the container -> docker run -d \            
+  --name student-api \
+  -p 8000:8000 \
+  student-api
