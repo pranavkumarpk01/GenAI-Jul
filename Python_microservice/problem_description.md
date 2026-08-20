@@ -49,3 +49,6 @@ from mystore import calculate_total, login_user
 # You can now call them directly:
 calculate_total()
 login_user()
+
+
+new
