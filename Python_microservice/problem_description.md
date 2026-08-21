@@ -13,3 +13,7 @@ features of microservice
 4.Independent deployable -> Each service will have a dockerfile and will get deployed individually
 
 5.Fault isoldation -> if notification service is down, task service will still successfully creates tasks
+
+
+Inorder to run the complete application please run this command
+-> docker-compose up --build
